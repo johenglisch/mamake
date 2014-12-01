@@ -85,7 +85,6 @@ is_func "$1" || die "function '$1' missing in build script"
 ### START ACTUAL COMMAND
 
 # go to build dir
-save_workdir=$(pwd)
 cd "$builddir"
 
 # execute command
@@ -103,6 +102,3 @@ case "$1" in
         inst || printlog 'installation failed'
         ;;
 esac
-
-# cd back to where we started
-cd "$save_worddir"
