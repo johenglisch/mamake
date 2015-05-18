@@ -8,7 +8,8 @@ function usage() {
     echo 'commands:'
     echo -e '\tconfig\t: configure build'
     echo -e '\tbuild\t: start build process'
-    echo -e '\tinst\t: install software'
+    echo -e '\tinstall\t: install software'
+    echo -e '\tclean\t: cleanup build dir'
     echo -e '\thelp\t: show this message'
     exit
 }
@@ -42,7 +43,7 @@ if [[ -z "$1" ]] || [[ "$1" = 'help' ]] || [[ "$1" = '-h' ]]; then
 fi
 
 # check if command is valid
-if [[ "$1" != 'config' ]] && [[ "$1" != 'build' ]] && [[ "$1" != 'inst' ]]; then
+if [[ "$1" != 'config' ]] && [[ "$1" != 'build' ]] && [[ "$1" != 'install' ]] && [[ "$1" != 'clean' ]]; then
     die "unknown command '$1'"
 fi
 
@@ -97,8 +98,12 @@ case "$1" in
         printlog 'building...'
         build || printlog 'build failed'
         ;;
-    'inst')
+    'install')
         printlog 'installing...'
         inst || printlog 'installation failed'
+        ;;
+    'clean')
+        printlog 'cleaning up...'
+        clean || printlog 'clean-up failed'
         ;;
 esac
