@@ -51,9 +51,7 @@ if [[ -z "$1" ]] || [[ "$1" = 'help' ]] || [[ "$1" = '-h' ]]; then
 fi
 
 # check if command is valid
-if [[ "$1" != 'config' ]] && [[ "$1" != 'build' ]] && [[ "$1" != 'inst' ]] && [[ "$1" != 'clean' ]]; then
-    die "unknown command '$1'"
-fi
+[[ -z ${COMMANDS[$1]} ]] && die "unknown command '$1'"
 
 # check if second arg is present
 [ -z "$2" ] && die 'missing build'
