@@ -85,8 +85,8 @@ printlog "build dir:  $builddir"
 # create build dir if necessary
 mkdir -pv "$builddir" || exit 1
 
-# check if the requested command is actually implemented
-is_func "$1" || die "function '$1' missing in build script"
+function="${COMMANDS[$1]}"
+is_func "$function" || die "function '$function' missing in build script"
 
 
 ### START ACTUAL COMMAND
