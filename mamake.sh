@@ -80,21 +80,5 @@ is_func "$function" || die "function '$function' missing in build script"
 
 cd "$builddir"
 
-case "$1" in
-    'config')
-        printlog 'configuring...'
-        config || printlog 'configuration failed'
-        ;;
-    'build')
-        printlog 'building...'
-        build || printlog 'build failed'
-        ;;
-    'inst')
-        printlog 'installing...'
-        inst || printlog 'installation failed'
-        ;;
-    'clean')
-        printlog 'cleaning up...'
-        clean || printlog 'clean-up failed'
-        ;;
-esac
+printlog "executing command '$1'"
+${COMMANDS[$1]} || printlog 'command failed'
