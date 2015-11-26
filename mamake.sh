@@ -43,7 +43,7 @@ if [[ -z "$1" ]] || [[ "$1" = 'help' ]] || [[ "$1" = '-h' ]]; then
 fi
 
 [[ -z ${COMMANDS[$1]} ]] && die "unknown command '$1'"
-[ -z "$2" ] && die 'missing build'
+[ -z "$2" ] && die 'missing build script'
 
 
 ## Read Build Script
