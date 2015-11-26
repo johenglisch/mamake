@@ -1,5 +1,13 @@
 #! /bin/bash
 
+### CONSTANTS
+
+declare -A COMMANDS=(\
+    ["config"]="configpkg"\
+    ["build"]="buildpkg"\
+    ["install"]="installpkg"\
+    ["clean"]="cleanpkg")
+
 ### FUNCTIONS
 
 # show help message and exit
