@@ -3,10 +3,10 @@
 ## Constants
 
 declare -A COMMANDS=(\
-    ["config"]="configpkg"\
-    ["build"]="buildpkg"\
-    ["install"]="installpkg"\
-    ["clean"]="cleanpkg")
+    ["config"]="config-pkg"\
+    ["build"]="build-pkg"\
+    ["install"]="install-pkg"\
+    ["clean"]="clean-pkg")
 
 
 ## Function Declarations
