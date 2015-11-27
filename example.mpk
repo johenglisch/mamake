@@ -1,0 +1,73 @@
+# This is an example build script for the URxvt terminal emulator.
+#
+# General note:
+#
+# Personally, I use the extension `*.mpk` (think 'Mamake package') for build
+# scripts.  However this is not enforced by mamake in any way, so feel free to
+# use whatever extension you like.
+
+
+## Variables
+
+# The location of the source code (mandatory)
+srcdir=$HOME/src/urxvt
+
+# The location of the build (optional, defaults to $srcdir)
+# Note: The directory will be created if it doesn't exist.
+builddir=$HOME/src/urxvt-build
+
+
+## Functions
+#
+# Notes:
+#  * Before the functions are run, the working directory is set to $builddir.
+#  * All of the functions are optional, i.e. you don't have to declare
+#    a function if you don't need the corresponding command.
+
+# The function 'config-pkg' is run by the 'config' command
+config-pkg() {
+    # run any pre-build stuff
+    $srcdir/configure \
+        --disable-256-color \
+        --disable-unicode3 \
+        --enable-combining \
+        --disable-xft \
+        --enable-font-styles \
+        --disable-pixbuf \
+        --disable-startup-notification \
+        --disable-transparency \
+        --disable-fading \
+        --disable-rxvt-scroll \
+        --disable-next-scroll \
+        --disable-xterm-scroll \
+        --disable-perl \
+        --enable-xim \
+        --enable-mousewheel \
+        --enable-slipwheeling \
+        --enable-smart-resize \
+        --disable-text-blink \
+        --with-x
+}
+
+# The function 'build-pkg' is run by the 'build' command
+build-pkg() {
+    # perform the actual build
+    make -j5 -l5
+}
+
+# The function 'install-pkg' is run by the 'install' command
+install-pkg() {
+    # Check for root privileges if necessary
+    if [ $UID -ne 0 ]; then
+        echo "root access needed"
+        return 1
+    fi
+    # Install software
+    make install
+}
+
+# The function 'clean-pkg' is run by the 'clean' command
+clean-pkg() {
+    # Run cleanup stuff
+    make clean
+}
