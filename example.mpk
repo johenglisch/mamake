@@ -66,6 +66,19 @@ install-pkg() {
     make install
 }
 
+# The function 'remove-pkg' is run by the 'remove' command
+remove-pkg() {
+    if [ $UID -ne 0 ]; then
+        echo "root access needed"
+        return 1
+    fi
+    # urxvt's makefile doesn't have an 'uninstall' rule, so everything has to be
+    # deleted manually
+    rm -vf /usr/local/bin/{urxvt,urxvtc,urxvtd}
+    rm -vf /usr/local/man/man1/{urxvt.1,urxvtc.1,urxvtd.1}
+    rm -vf /usr/local/man/man7/urxvt.7
+}
+
 # The function 'clean-pkg' is run by the 'clean' command
 clean-pkg() {
     # Run cleanup stuff
