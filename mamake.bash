@@ -18,6 +18,7 @@ function usage() {
     echo -e '\tconfig\t: configure build'
     echo -e '\tbuild\t: start build process'
     echo -e '\tinstall\t: install software'
+    echo -e '\tremove\t: uninstall software'
     echo -e '\tclean\t: cleanup build dir'
     echo -e '\thelp\t: show this message'
     exit
