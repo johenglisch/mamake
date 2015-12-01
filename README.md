@@ -30,11 +30,12 @@ argument:
 
     usage: mamake [command] [build script]
     commands:
-            config  : configure build
-            build   : start build process
-            install : install software
-            clean   : cleanup build dir
-            help    : show this message
+        config  : configure build
+        build   : start build process
+        install : install software
+        remove  : uninstall software
+        clean   : cleanup build dir
+        help    : show this message
 
 For the contents of the build script, see the annotated example script
 `example.mpk`.
