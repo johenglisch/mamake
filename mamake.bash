@@ -6,6 +6,7 @@ declare -A COMMANDS=(\
     ["config"]="config-pkg"\
     ["build"]="build-pkg"\
     ["install"]="install-pkg"\
+    ["remove"]="remove-pkg"\
     ["clean"]="clean-pkg")
 
 
