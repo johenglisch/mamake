@@ -28,13 +28,13 @@ remove that ugly file extension, e.g.:
 Create a build script as a plain text file pass it to mamake as an command-line
 argument:
 
-    mamake [command] [build script]
+    usage: mamake [command] [build script]
     commands:
-        config  : configure build
-        build   : start build process
-        inst    : install software
-        clean   : cleanup build dir
-        help    : show this message
+            config  : configure build
+            build   : start build process
+            install : install software
+            clean   : cleanup build dir
+            help    : show this message
 
 For the contents of the build script, see the annotated example script
 `example.mpk`.
