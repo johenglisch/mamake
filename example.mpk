@@ -82,5 +82,5 @@ remove-pkg() {
 # The function 'clean-pkg' is run by the 'clean' command
 clean-pkg() {
     # Run cleanup stuff
-    make clean
+    make distclean
 }
